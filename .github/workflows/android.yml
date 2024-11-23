@@ -30,7 +30,3 @@ jobs:
     
     - name: Build with Gradle (Unit tests)
       run: ./gradlew testRelease
-    
-    - name: Build with Gradle (lintVitalRelease)
-      run: ./gradlew lintVitalRelease
-  

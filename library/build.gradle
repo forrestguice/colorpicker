@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-	Boolean useAndroidX = project.properties['android.useAndroidX'].toBoolean()
+	Boolean useAndroidX = project.properties['android.useAndroidX'] != null && project.properties['android.useAndroidX'].toBoolean()
 
 	compileSdkVersion 28
 	buildToolsVersion '28.0.3'

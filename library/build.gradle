@@ -2,14 +2,9 @@ apply plugin: 'com.android.library'
 
 android {
 	Boolean useAndroidX = project.properties['android.useAndroidX'] != null && project.properties['android.useAndroidX'].toBoolean()
-	def targetVersion = project.properties['android.targetVersion'] != null ? project.properties['android.targetVersion'].toInteger() : null
-	if (targetVersion == null) {
-		compileSdkVersion 28
-		buildToolsVersion '28.0.3'
-	} else {
-		compileSdkVersion targetVersion
-		buildToolsVersion '28.0.3'
-	}
+
+	compileSdkVersion 28
+	buildToolsVersion '28.0.3'
 
 	defaultConfig {
 		minSdkVersion 14
@@ -26,7 +21,7 @@ android {
 		}
 	}
 
-	flavorDimensions "support_version", "api"
+	flavorDimensions "support_version"
 
 	productFlavors {
 		supportlib {
@@ -43,25 +38,11 @@ android {
 			versionNameSuffix "-androidx"
 			testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 		}
-		api25 {
-			dimension "api"
-			compileSdkVersion 25
-			//noinspection ExpiredTargetSdkVersion,OldTargetApi
-			targetSdkVersion 25
-			versionNameSuffix "-api25"
-		}
-		api28 {
-			dimension "api"
-			//noinspection ExpiredTargetSdkVersion,OldTargetApi
-			targetSdkVersion 28
-			versionNameSuffix "-api28"
-		}
 	}
 
 	configurations {
-		supportlibApi25Implementation {}
-		supportlibApi28Implementation {}
-		androidxApi28Implementation {}
+		supportlibImplementation {}
+		androidxImplementation {}
 	}
 
 	variantFilter { variant ->
@@ -83,7 +64,6 @@ android {
 }
 
 dependencies {
-	supportlibApi25Implementation 'com.android.support:appcompat-v7:26.0.1'
-	supportlibApi28Implementation 'com.android.support:appcompat-v7:28.0.0'
-	androidxApi28Implementation 'androidx.appcompat:appcompat:1.3.1'
+	supportlibImplementation 'com.android.support:appcompat-v7:28.0.0'
+	androidxImplementation 'androidx.appcompat:appcompat:1.3.1'
 }

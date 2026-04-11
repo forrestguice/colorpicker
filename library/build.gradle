@@ -49,7 +49,7 @@ android {
 		androidx {
 			dimension "support_version"
 			//noinspection ExpiredTargetSdkVersion,OldTargetApi
-			targetSdkVersion 28
+			targetSdkVersion 30
 			versionNameSuffix "-androidx"
 			testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 		}
